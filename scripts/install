@@ -162,7 +162,7 @@ systemctl reload nginx
 #=================================================
 
 # Set permissions to app files
-chown -R root: $final_path
+chown -R www-data: $final_path
 
 #=================================================
 # SETUP LOGROTATE
