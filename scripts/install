@@ -24,7 +24,6 @@ domain=$YNH_APP_ARG_DOMAIN
 path_url=$YNH_APP_ARG_PATH
 admin=$YNH_APP_ARG_ADMIN
 is_public=$YNH_APP_ARG_IS_PUBLIC
-language=$YNH_APP_ARG_LANGUAGE
 
 # This is a multi-instance app, meaning it can be installed several times independently
 # The id of the app as stated in the manifest is available as $YNH_APP_ID
@@ -61,7 +60,6 @@ ynh_app_setting_set $app domain $domain
 ynh_app_setting_set $app path $path_url
 ynh_app_setting_set $app admin $admin
 ynh_app_setting_set $app is_public $is_public
-ynh_app_setting_set $app language $language
 
 #=================================================
 # STANDARD MODIFICATIONS
@@ -79,17 +77,7 @@ ynh_app_setting_set $app port $port
 # INSTALL DEPENDENCIES
 #=================================================
 
-ynh_install_app_dependencies deb1 deb2
-
-#=================================================
-# CREATE A MYSQL DATABASE
-#=================================================
-# If your app uses a MySQL database, you can use these lines to bootstrap
-# a database, an associated user and save the password in app settings
-
-db_name=$(ynh_sanitize_dbid $app)
-ynh_app_setting_set $app db_name $db_name
-ynh_mysql_setup_db $db_name $db_name
+ynh_install_app_dependencies git
 
 #=================================================
 # DOWNLOAD, CHECK AND UNPACK SOURCE
@@ -97,7 +85,10 @@ ynh_mysql_setup_db $db_name $db_name
 
 ynh_app_setting_set $app final_path $final_path
 # Download, check integrity, uncompress and patch the source from app.src
-ynh_setup_source "$final_path"
+#ynh_setup_source "$final_path"
+git clone "https://framagit.org/framasoft/PrettyNoemieCMS" "$final_path"
+cd "$final_path"
+composer install
 
 #=================================================
 # NGINX CONFIGURATION
@@ -149,13 +140,13 @@ yunohost app ssowatconf
 systemctl reload nginx
 
 # Installation with curl
-ynh_local_curl "/INSTALL_PATH" "key1=value1" "key2=value2" "key3=value3"
+#ynh_local_curl "/INSTALL_PATH" "key1=value1" "key2=value2" "key3=value3"
 
 #=================================================
 # MODIFY A CONFIG FILE
 #=================================================
 
-ynh_replace_string "match_string" "replace_string" "$final_path/CONFIG_FILE"
+#ynh_replace_string "match_string" "replace_string" "$final_path/CONFIG_FILE"
 
 #=================================================
 # STORE THE CHECKSUM OF THE CONFIG FILE
