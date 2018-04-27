@@ -129,7 +129,7 @@ ynh_add_fpm_config
 #=================================================
 
 # Set right permissions for curl install
-chown -R $app: $final_path
+#chown -R $app: $final_path
 
 # Set the app as temporarily public for curl call
 ynh_app_setting_set $app skipped_uris "/"
@@ -162,7 +162,7 @@ systemctl reload nginx
 #=================================================
 
 # Set permissions to app files
-chown -R www-data: $final_path
+chown -R www-data:www-data $final_path
 
 #=================================================
 # SETUP LOGROTATE
