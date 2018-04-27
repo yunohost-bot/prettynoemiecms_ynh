@@ -122,7 +122,7 @@ ynh_add_fpm_config
 #=================================================
 
 # Create a dedicated systemd config
-ynh_systemd_config
+#ynh_systemd_config
 
 #=================================================
 # SETUP APPLICATION WITH CURL
