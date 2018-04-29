@@ -90,6 +90,8 @@ git clone "https://framagit.org/framasoft/PrettyNoemieCMS" "$final_path"
 
 init_composer "$final_path"
 
+exec_composer "$final_path" require paragonie/random_compat
+
 #=================================================
 # NGINX CONFIGURATION
 #=================================================
