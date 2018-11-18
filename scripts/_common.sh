@@ -24,7 +24,7 @@ exec_composer() {
 
   COMPOSER_HOME="${workdir}/.composer" \
     php "${workdir}/composer.phar" $@ \
-      -d "${workdir}" --quiet --no-interaction
+      -d "${workdir}"  --no-interaction
 }
 
 # Install and initialize Composer in the given directory

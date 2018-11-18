@@ -86,11 +86,12 @@ ynh_install_app_dependencies "$pkg_dependencies"
 ynh_app_setting_set $app final_path $final_path
 # Download, check integrity, uncompress and patch the source from app.src
 #ynh_setup_source "$final_path"
-git clone "https://framagit.org/framasoft/PrettyNoemieCMS" "$final_path"
+git clone "https://framagit.org/framasoft/PrettyNoemieCMS" -b  update-project "$final_path"
 
+ssh-keyscan -H github.com >> ~/.ssh/known_hosts
 init_composer "$final_path"
 
-exec_composer "$final_path" require paragonie/random_compat
+#exec_composer "$final_path" require paragonie/random_compat
 
 #=================================================
 # NGINX CONFIGURATION
@@ -165,7 +166,7 @@ systemctl reload nginx
 #=================================================
 
 # Set permissions to app files
-chown -R www-data:www-data $final_path
+chown -R $app:www-data $final_path
 
 #=================================================
 # SETUP LOGROTATE
