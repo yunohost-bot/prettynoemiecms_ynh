@@ -1,26 +1,25 @@
 {
-    "name": "PrettyNoemie CMS app",
+    "name": "PrettyNoemie CMS",
     "id": "prettynoemiecms",
     "packaging_format": 1,
     "description": {
         "en": "PrettyNoemie CMS package for YunoHost application.",
         "fr": "Package d’application PrettyNoemie CMS pour YunoHost."
     },
-    "version": "1.0",
+    "version": "2019.05.23~ynh1",
     "url": "https://framagit.org/framasoft/PrettyNoemieCMS",
-    "license": "GNU Affero General Public License v3.0",
+    "license": "AGPL-3.0",
     "maintainer": {
-        "name": "John doe",
-        "email": "john.doe@example.com",
-        "url": "https://framagit.org/framasoft/PrettyNoemieCMS"
+        "name": "kay0u",
+        "email": "pierre@kayou.io"
     },
     "requirements": {
-        "yunohost": ">= 2.7.2"
+        "yunohost": ">= 3.5"
     },
     "multi_instance": true,
     "services": [
         "nginx",
-        "php5-fpm"
+        "php7.0-fpm"
     ],
     "arguments": {
         "install" : [
@@ -60,6 +59,29 @@
                     "fr": "Est-ce une application publique ?"
                 },
                 "default": true
+            },
+            {
+                "name": "language",
+                "type": "string",
+                "ask": {
+                    "en": "Choose the application language",
+                    "fr": "Choisissez la langue de l'application"
+                },
+                "choices": ["fr_FR", "en_EN"],
+                "default": "fr_FR"
+            },
+            {
+                "name": "password",
+                "type": "password",
+                "ask": {
+                    "en": "Set the administrator password",
+                    "fr": "Définissez le mot de passe administrateur"
+                },
+                "help": {
+                    "en": "Use the help field to add an information for the admin about this question.",
+                    "fr": "Utilisez le champ aide pour ajouter une information à l'intention de l'administrateur à propos de cette question."
+                },
+                "example": "Choose a password"
             }
         ]
     }
