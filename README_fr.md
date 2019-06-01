@@ -9,7 +9,8 @@
 Si vous n'avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) pour savoir comment l'installer et en profiter.*
 
 ## Vue d'ensemble
-Description rapide de cette application.
+CMS offrant à ses utilisateurs une solution ergonomique, simple et élégante pour construire en un rien de temps des sites vitrines responsives au design moderne.
+La construction de votre site consistera à agencer à votre convenance des modules variés, d'éditer leurs contenus, et de personnaliser votre site en choisissant les polices de caractère, la mise en forme du texte, ainsi que les couleurs d'affichage.
 
 **Version incluse:** 2019.05.23
 
