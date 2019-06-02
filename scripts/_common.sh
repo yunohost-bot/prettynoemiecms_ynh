@@ -1,47 +1,67 @@
 #!/bin/bash
 
-# ============= FUTURE YUNOHOST HELPER =============
-# Delete a file checksum from the app settings
+#=================================================
+# COMMON VARIABLES
+#=================================================
+
+# dependencies used by the app
+pkg_dependencies="php7.0-cli php7.0-common php7.0-intl php7.0-json git"
+
+#=================================================
+# PERSONAL HELPERS
+#=================================================
+
+#=================================================
+# EXPERIMENTAL HELPERS
+#=================================================
+
+#=================================================
+# FUTURE OFFICIAL HELPERS
+#=================================================
+
+# Execute a command with Composer
 #
-# $app should be defined when calling this helper
-#
-# usage: ynh_remove_file_checksum file
-# | arg: file - The file for which the checksum will be deleted
-ynh_delete_file_checksum () {
-	local checksum_setting_name=checksum_${1//[\/ ]/_}	# Replace all '/' and ' ' by '_'
-	ynh_app_setting_delete $app $checksum_setting_name
-}
+# usage: ynh_composer_exec --phpversion=phpversion [--workdir=$final_path] --commands="commands"
+# | arg: -w, --workdir - The directory from where the command will be executed. Default $final_path.
+# | arg: -c, --commands - Commands to execute.
+ynh_composer_exec () {
+	# Declare an array to define the options of this helper.
+	local legacy_args=vwc
+	declare -Ar args_array=( [v]=phpversion= [w]=workdir= [c]=commands= )
+	local phpversion
+	local workdir
+	local commands
+	# Manage arguments with getopts
+	ynh_handle_getopts_args "$@"
+	workdir="${workdir:-$final_path}"
+	phpversion="${phpversion:-7.0}"
 
-# Package dependencies
-pkg_dependencies="php5-cli php5-common php5-intl php5-json git"
-
-# composer from roundcube_ynh
-# Execute a composer command from a given directory
-# usage: composer_exec workdir COMMAND [ARG ...]
-exec_composer() {
-  local workdir=$1
-  shift 1
-
-  COMPOSER_HOME="${workdir}/.composer" \
-    php "${workdir}/composer.phar" $@ \
-      -d "${workdir}"  --no-interaction
+	COMPOSER_HOME="$workdir/.composer" \
+		php${phpversion} "$workdir/composer.phar" $commands \
+		-d "$workdir" --quiet --no-interaction
 }
 
 # Install and initialize Composer in the given directory
-# usage: init_composer destdir
-init_composer() {
-  local destdir=$1
+#
+# usage: ynh_install_composer --phpversion=phpversion [--workdir=$final_path]
+# | arg: -w, --workdir - The directory from where the command will be executed. Default $final_path.
+ynh_install_composer () {
+	# Declare an array to define the options of this helper.
+	local legacy_args=vw
+	declare -Ar args_array=( [v]=phpversion= [w]=workdir= )
+	local phpversion
+	local workdir
+	# Manage arguments with getopts
+	ynh_handle_getopts_args "$@"
+	workdir="${workdir:-$final_path}"
+	phpversion="${phpversion:-7.0}"
 
-  # install composer
-  curl -sS https://getcomposer.org/installer \
-    | COMPOSER_HOME="${destdir}/.composer" \
-        php -- --quiet --install-dir="$destdir" \
-    || ynh_die "Unable to install Composer"
+	curl -sS https://getcomposer.org/installer \
+		| COMPOSER_HOME="$workdir/.composer" \
+		php${phpversion} -- --quiet --install-dir="$workdir" \
+		|| ynh_die "Unable to install Composer."
 
-  # install composer.json
-  #cp "${destdir}/composer.json-dist" "${destdir}/composer.json"
-
-  # update dependencies to create composer.lock
-  exec_composer "$destdir" install --no-dev \
-    || ynh_die "Unable to install app using composer"
+	# update dependencies to create composer.lock
+	ynh_composer_exec --phpversion="${phpversion}" --workdir="$workdir" --commands="install --no-dev" \
+		|| ynh_die "Unable to update core dependencies with Composer."
 }
