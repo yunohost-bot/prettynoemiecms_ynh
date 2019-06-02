@@ -1,5 +1,5 @@
-SOURCE_URL=url of app's source
-SOURCE_SUM=sha256 checksum
+SOURCE_URL=https://framagit.org/framasoft/PrettyNoemieCMS/-/archive/d600c5332aff591744e5159f0c80f1de188703f9/PrettyNoemieCMS-d600c5332aff591744e5159f0c80f1de188703f9.tar.gz
+SOURCE_SUM=f53ea70c3d7e9582ef67bb2ec8fe12b88b141b54a34bd651a3cce1a13ff8c585
 SOURCE_SUM_PRG=sha256sum
 SOURCE_FORMAT=tar.gz
 SOURCE_IN_SUBDIR=true
