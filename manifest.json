@@ -3,8 +3,8 @@
     "id": "prettynoemiecms",
     "packaging_format": 1,
     "description": {
-        "en": "PrettyNoemie CMS package for YunoHost application.",
-        "fr": "Package d’application PrettyNoemie CMS pour YunoHost."
+        "en": "CMS offers its users an ergonomic solution, simple and elegant to build in no time responsive windows sites with modern design.",
+        "fr": "CMS offrant à ses utilisateurs une solution ergonomique, simple et élégante pour construire en un rien de temps des sites vitrines responsives au design moderne."
     },
     "version": "2019.05.23~ynh1",
     "url": "https://framagit.org/framasoft/PrettyNoemieCMS",
