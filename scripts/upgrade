@@ -149,6 +149,8 @@ if [ $is_public -eq 1 ]
 then
 	# unprotected_uris allows SSO credentials to be passed anyway
 	ynh_app_setting_set --app=$app --key=unprotected_uris --value="/"
+	# protect the admin panel
+	ynh_app_setting_set --app=$app --key=protected_uris --value="/admin"
 fi
 
 #=================================================
