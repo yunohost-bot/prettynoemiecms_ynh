@@ -6,7 +6,7 @@
         "en": "CMS offers its users an ergonomic solution, simple and elegant to build in no time responsive windows sites with modern design.",
         "fr": "CMS offrant à ses utilisateurs une solution ergonomique, simple et élégante pour construire en un rien de temps des sites vitrines responsives au design moderne."
     },
-    "version": "2019.05.23~ynh1",
+    "version": "2019.05.23~ynh2",
     "url": "https://framagit.org/framasoft/PrettyNoemieCMS",
     "license": "AGPL-3.0",
     "maintainer": {
