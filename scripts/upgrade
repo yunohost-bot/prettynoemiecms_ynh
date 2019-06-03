@@ -130,6 +130,9 @@ ynh_backup_if_checksum_is_different --file="$final_path/sites/$domain/config.jso
 # Recalculate and store the checksum of the file for the next upgrade.
 ynh_store_file_checksum --file="$final_path/sites/$domain/config.json"
 
+# Fix a bug where images can't be uploaded
+ynh_replace_string --match_string="isMediaPathModified = true" --replace_string="" --target_file="$final_path/app/config/config.ini"
+
 #=================================================
 # GENERIC FINALIZATION
 #=================================================

@@ -146,6 +146,9 @@ ynh_app_setting_delete --app=$app --key=skipped_uris
 # Calculate and store the config file checksum into the app settings
 ynh_store_file_checksum --file="$final_path/sites/$domain/config.json"
 
+# Fix a bug where images can't be uploaded
+ynh_replace_string --match_string="isMediaPathModified = true" --replace_string="" --target_file="$final_path/app/config/config.ini"
+
 #=================================================
 # GENERIC FINALIZATION
 #=================================================
