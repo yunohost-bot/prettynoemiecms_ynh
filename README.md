@@ -1,15 +1,15 @@
 # PrettyNoemieCMS for YunoHost
 
-[![Integration level](https://dash.yunohost.org/integration/prettynoemiecms.svg)](https://dash.yunohost.org/appci/app/prettynoemiecms)  
-[![Install prettynoemiecms with YunoHost](https://install-app.yunohost.org/install-with-yunohost.png)](https://install-app.yunohost.org/?app=prettynoemiecms)
+[![Integration level](https://dash.yunohost.org/integration/prettynoemiecms.svg)](https://dash.yunohost.org/appci/app/prettynoemiecms) ![](https://ci-apps.yunohost.org/ci/badges/prettynoemiecms.status.svg) ![](https://ci-apps.yunohost.org/ci/badges/prettynoemiecms.maintain.svg)  
+[![Install PrettyNoemieCMS with YunoHost](https://install-app.yunohost.org/install-with-yunohost.png)](https://install-app.yunohost.org/?app=prettynoemiecms)
 
 *[Lire ce readme en français.](./README_fr.md)*
 
-> *This package allow you to install prettynoemiecms quickly and simply on a YunoHost server.  
+> *This package allow you to install PrettyNoemieCMS quickly and simply on a YunoHost server.  
 If you don't have YunoHost, please see [here](https://yunohost.org/#/install) to know how to install and enjoy it.*
 
 ## Overview
-CMS offers its users an ergonomic solution, simple and elegant to build in no time responsive windows sites with modern design.
+PrettyNoemieCMS offers its users an ergonomic solution, simple and elegant to build in no time responsive windows sites with modern design.
 The construction of your site will consist of arranging at your convenience various modules, edit their content, and customize your site by choosing fonts, formatting text, and display colors.
 
 **Shipped version:** 2020.01.07
@@ -40,17 +40,13 @@ How to configure this app: by an admin panel at: `your.domain.tld/your_path/admi
 
 #### Multi-users support
 
-Are LDAP and HTTP auth supported? **NO**  
-Can the app be used by multiple users? **NO**
+Are LDAP and HTTP auth supported? **No**  
+Can the app be used by multiple users? **No**
 
 #### Supported architectures
 
-* x86-64b - [![Build Status](https://ci-apps.yunohost.org/ci/logs/prettynoemiecms%20%28Apps%29.svg)](https://ci-apps.yunohost.org/ci/apps/prettynoemiecms/)
+* x86-64 - [![Build Status](https://ci-apps.yunohost.org/ci/logs/prettynoemiecms%20%28Apps%29.svg)](https://ci-apps.yunohost.org/ci/apps/prettynoemiecms/)
 * ARMv8-A - [![Build Status](https://ci-apps-arm.yunohost.org/ci/logs/prettynoemiecms%20%28Apps%29.svg)](https://ci-apps-arm.yunohost.org/ci/apps/prettynoemiecms/)
-* Jessie x86-64b - [![Build Status](https://ci-stretch.nohost.me/ci/logs/prettynoemiecms%20%28Apps%29.svg)](https://ci-stretch.nohost.me/ci/apps/prettynoemiecms/)
-
-**More information on the documentation page:**  
-https://yunohost.org/packaging_apps
 
 ## Links
 
@@ -61,10 +57,8 @@ https://yunohost.org/packaging_apps
 
 ---
 
-Developers info
-----------------
+## Developers info
 
-**Only if you want to use a testing branch for coding, instead of merging directly into master.**
 Please do your pull request to the [testing branch](https://github.com/YunoHost-Apps/prettynoemiecms_ynh/tree/testing).
 
 To try the testing branch, please proceed like that.
