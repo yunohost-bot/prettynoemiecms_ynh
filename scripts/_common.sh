@@ -4,8 +4,12 @@
 # COMMON VARIABLES
 #=================================================
 
+YNH_PHP_VERSION="7.3"
+
 # dependencies used by the app
-pkg_dependencies="php7.0-cli php7.0-common php7.0-intl php7.0-json git"
+extra_php_dependencies="php${YNH_PHP_VERSION}-cli php${YNH_PHP_VERSION}-common php${YNH_PHP_VERSION}-intl php${YNH_PHP_VERSION}-json"
+
+pkg_dependencies="git"
 
 #=================================================
 # PERSONAL HELPERS
@@ -34,7 +38,7 @@ ynh_composer_exec () {
 	# Manage arguments with getopts
 	ynh_handle_getopts_args "$@"
 	workdir="${workdir:-$final_path}"
-	phpversion="${phpversion:-7.0}"
+	phpversion="${phpversion:-7.3}"
 
 	COMPOSER_HOME="$workdir/.composer" \
 		php${phpversion} "$workdir/composer.phar" $commands \

@@ -1,12 +1,12 @@
 # PrettyNoemieCMS for YunoHost
 
 [![Integration level](https://dash.yunohost.org/integration/prettynoemiecms.svg)](https://dash.yunohost.org/appci/app/prettynoemiecms) ![](https://ci-apps.yunohost.org/ci/badges/prettynoemiecms.status.svg) ![](https://ci-apps.yunohost.org/ci/badges/prettynoemiecms.maintain.svg)  
-[![Install PrettyNoemieCMS with YunoHost](https://install-app.yunohost.org/install-with-yunohost.png)](https://install-app.yunohost.org/?app=prettynoemiecms)
+[![Install PrettyNoemieCMS with YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=prettynoemiecms)
 
 *[Lire ce readme en français.](./README_fr.md)*
 
 > *This package allow you to install PrettyNoemieCMS quickly and simply on a YunoHost server.  
-If you don't have YunoHost, please see [here](https://yunohost.org/#/install) to know how to install and enjoy it.*
+If you don't have YunoHost, please see [here](https://yunohost.org/install) to know how to install and enjoy it.*
 
 ## Overview
 PrettyNoemieCMS offers its users an ergonomic solution, simple and elegant to build in no time responsive windows sites with modern design.
@@ -45,8 +45,8 @@ Can the app be used by multiple users? **No**
 
 #### Supported architectures
 
-* x86-64 - [![Build Status](https://ci-apps.yunohost.org/ci/logs/prettynoemiecms%20%28Apps%29.svg)](https://ci-apps.yunohost.org/ci/apps/prettynoemiecms/)
-* ARMv8-A - [![Build Status](https://ci-apps-arm.yunohost.org/ci/logs/prettynoemiecms%20%28Apps%29.svg)](https://ci-apps-arm.yunohost.org/ci/apps/prettynoemiecms/)
+* x86-64 - [![Build Status](https://ci-apps.yunohost.org/ci/logs/prettynoemiecms.svg)](https://ci-apps.yunohost.org/ci/apps/prettynoemiecms/)
+* ARMv8-A - [![Build Status](https://ci-apps-arm.yunohost.org/ci/logs/prettynoemiecms.svg)](https://ci-apps-arm.yunohost.org/ci/apps/prettynoemiecms/)
 
 ## Links
 

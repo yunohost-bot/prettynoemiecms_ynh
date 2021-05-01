@@ -19,9 +19,9 @@ app=$YNH_APP_INSTANCE_NAME
 domain=$(ynh_app_setting_get --app=$app --key=domain)
 path_url=$(ynh_app_setting_get --app=$app --key=path)
 admin=$(ynh_app_setting_get --app=$app --key=admin)
-is_public=$(ynh_app_setting_get --app=$app --key=is_public)
 final_path=$(ynh_app_setting_get --app=$app --key=final_path)
 language=$(ynh_app_setting_get --app=$app --key=language)
+phpversion=$(ynh_app_setting_get --app=$app --key=phpversion)
 
 #=================================================
 # CHECK VERSION
@@ -34,19 +34,22 @@ upgrade_type=$(ynh_check_app_version_changed)
 #=================================================
 ynh_script_progression --message="Ensuring downward compatibility..." --weight=1
 
-# Fix is_public as a boolean value
-if [ "$is_public" = "Yes" ]; then
-	ynh_app_setting_set --app=$app --key=is_public --value=1
-	is_public=1
-elif [ "$is_public" = "No" ]; then
-	ynh_app_setting_set --app=$app --key=is_public --value=0
-	is_public=0
-fi
-
 # If final_path doesn't exist, create it
 if [ -z "$final_path" ]; then
 	final_path=/var/www/$app
 	ynh_app_setting_set --app=$app --key=final_path --value=$final_path
+fi
+
+# Cleaning legacy permissions
+if ynh_legacy_permissions_exists; then
+	ynh_legacy_permissions_delete_all
+
+	ynh_app_setting_delete --app=$app --key=is_public
+fi
+
+if ! ynh_permission_exists --permission="admin"; then
+	# Create the required permissions
+	ynh_permission_create --permission="admin" --url="/admin" --allowed=$admin
 fi
 
 #=================================================
@@ -62,18 +65,6 @@ ynh_clean_setup () {
 }
 # Exit if an error occurs during the execution of the script
 ynh_abort_if_errors
-
-#=================================================
-# CHECK THE PATH
-#=================================================
-
-# Normalize the URL path syntax
-# N.B. : this is for app installations before YunoHost 2.7
-# where this value might be something like /foo/ or foo/
-# instead of /foo ....
-# If nobody installed your app before 2.7, then you may
-# safely remove this line
-path_url=$(ynh_normalize_url_path --path_url=$path_url)
 
 #=================================================
 # STANDARD UPGRADE STEPS
@@ -92,7 +83,7 @@ fi
 #=================================================
 # NGINX CONFIGURATION
 #=================================================
-ynh_script_progression --message="Upgrading nginx web server configuration..." --weight=1
+ynh_script_progression --message="Upgrading NGINX web server configuration..." --weight=1
 
 # Create a dedicated nginx config
 ynh_add_nginx_config
@@ -115,7 +106,7 @@ ynh_system_user_create --username=$app
 #=================================================
 # PHP-FPM CONFIGURATION
 #=================================================
-ynh_script_progression --message="Upgrading php-fpm configuration..." --weight=1
+ynh_script_progression --message="Upgrading PHP-FPM configuration..." --weight=1
 
 # Create a dedicated php-fpm config
 ynh_add_fpm_config
@@ -143,23 +134,9 @@ ynh_replace_string --match_string="isMediaPathModified = true" --replace_string=
 chown -R $app: $final_path
 
 #=================================================
-# SETUP SSOWAT
-#=================================================
-ynh_script_progression --message="Upgrading SSOwat configuration..." --weight=1
-
-# Make app public if necessary
-if [ $is_public -eq 1 ]
-then
-	# unprotected_uris allows SSO credentials to be passed anyway
-	ynh_app_setting_set --app=$app --key=unprotected_uris --value="/"
-	# protect the admin panel
-	ynh_app_setting_set --app=$app --key=protected_uris --value="/admin"
-fi
-
-#=================================================
 # RELOAD NGINX
 #=================================================
-ynh_script_progression --message="Reloading nginx web server..." --weight=1
+ynh_script_progression --message="Reloading NGINX web server..." --weight=1
 
 ynh_systemd_action --service_name=nginx --action=reload
 
