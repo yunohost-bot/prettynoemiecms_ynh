@@ -52,7 +52,6 @@ ynh_script_progression --message="Storing installation settings..." --weight=1
 ynh_app_setting_set --app=$app --key=domain --value=$domain
 ynh_app_setting_set --app=$app --key=path --value=$path_url
 ynh_app_setting_set --app=$app --key=admin --value=$admin
-ynh_app_setting_set --app=$app --key=is_public --value=$is_public
 ynh_app_setting_set --app=$app --key=language --value=$language
 
 #=================================================
@@ -92,7 +91,7 @@ ynh_system_user_create --username=$app
 #=================================================
 # PHP-FPM CONFIGURATION
 #=================================================
-ynh_script_progression --message="Configuring php-fpm..." --weight=1
+ynh_script_progression --message="Configuring PHP-FPM." --weight=1
 
 # Create a dedicated php-fpm config
 ynh_add_fpm_config
@@ -123,13 +122,10 @@ chown -R $app: $final_path
 # SETUP APPLICATION WITH CURL
 #=================================================
 
-# Set the app as temporarily public for curl call
-ynh_script_progression --message="Configuring SSOwat..." --weight=1
-ynh_app_setting_set --app=$app --key=skipped_uris --value="/"
-# Reload SSOwat config
-yunohost app ssowatconf
+# Set the app as temporarily public for cURL call
+ynh_permission_update --permission="main" --add="visitors"
 
-# Reload Nginx
+# Reload NGINX
 ynh_systemd_action --service_name=nginx --action=reload
 
 # Installation with curl
@@ -137,7 +133,7 @@ ynh_script_progression --message="Finalizing installation..." --weight=2
 ynh_local_curl "/signIn" "username=$admin" "password=$password" "repeatPassword=$password"
 
 # Remove the public access
-ynh_app_setting_delete --app=$app --key=skipped_uris
+ynh_permission_update --permission="main" --remove="visitors"
 
 #=================================================
 # STORE THE CONFIG FILE CHECKSUM
@@ -159,8 +155,6 @@ ynh_script_progression --message="Configuring permissions..." --weight=1
 # Make app public if necessary
 if [ $is_public -eq 1 ]
 then
-	# Everyone can access the app.
-	# The "main" permission is automatically created before the install script.
 	ynh_permission_update --permission="main" --add="visitors"
 	# Only the admin can access the admin panel of the app (if the app has an admin panel)
 	ynh_permission_create --permission="admin" --url="/admin" --allowed=$admin

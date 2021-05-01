@@ -4,8 +4,10 @@
 # COMMON VARIABLES
 #=================================================
 
+YNH_PHP_VERSION="7.3"
+
 # dependencies used by the app
-pkg_dependencies="php7.0-cli php7.0-common php7.0-intl php7.0-json git"
+pkg_dependencies="php{YNH_PHP_VERSION}-cli php{YNH_PHP_VERSION}-common php{YNH_PHP_VERSION}-intl php{YNH_PHP_VERSION}-json git"
 
 #=================================================
 # PERSONAL HELPERS
