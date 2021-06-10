@@ -1,10 +1,10 @@
 ;; Test complet
 	; Manifest
-		domain="domain.tld"	(DOMAIN)
-		path="/path"	(PATH)
-		admin="john"	(USER)
+		domain="domain.tld"
+		path="/path"
+		admin="john"
 		language="fr_FR"
-		is_public=1	(PUBLIC|public=1|private=0)
+		is_public=1
 		password="pass"
 	; Checks
 		pkg_linter=1
@@ -14,13 +14,14 @@
 		setup_private=1
 		setup_public=1
 		upgrade=1
+		upgrade=1	from_commit=a2309f4c622bab3b728e765b125245ebf55f3f59
 		backup_restore=1
 		multi_instance=1
-		incorrect_path=1
-		port_already_use=0
 		change_url=1
-;;; Levels
-	Level 5=auto
 ;;; Options
 Email=
 Notification=none
+;;; Upgrade options
+	; commit=a2309f4c622bab3b728e765b125245ebf55f3f59
+		name=Merge pull request #13 from YunoHost-Apps/testing
+		manifest_arg=domain=DOMAIN&path=PATH&admin=USER&language=fr&is_public=1&password=pass&port=666&
