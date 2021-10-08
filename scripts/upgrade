@@ -30,6 +30,20 @@ phpversion=$(ynh_app_setting_get --app=$app --key=phpversion)
 upgrade_type=$(ynh_check_app_version_changed)
 
 #=================================================
+# BACKUP BEFORE UPGRADE THEN ACTIVE TRAP
+#=================================================
+ynh_script_progression --message="Backing up the app before upgrading (may take a while)..." --weight=4
+
+# Backup the current version of the app
+ynh_backup_before_upgrade
+ynh_clean_setup () {
+	# restore it if the upgrade fails
+	ynh_restore_upgradebackup
+}
+# Exit if an error occurs during the execution of the script
+ynh_abort_if_errors
+
+#=================================================
 # ENSURE DOWNWARD COMPATIBILITY
 #=================================================
 ynh_script_progression --message="Ensuring downward compatibility..." --weight=1
@@ -53,18 +67,12 @@ if ! ynh_permission_exists --permission="admin"; then
 fi
 
 #=================================================
-# BACKUP BEFORE UPGRADE THEN ACTIVE TRAP
+# CREATE DEDICATED USER
 #=================================================
-ynh_script_progression --message="Backing up the app before upgrading (may take a while)..." --weight=4
+ynh_script_progression --message="Making sure dedicated system user exists..." --weight=1
 
-# Backup the current version of the app
-ynh_backup_before_upgrade
-ynh_clean_setup () {
-	# restore it if the upgrade fails
-	ynh_restore_upgradebackup
-}
-# Exit if an error occurs during the execution of the script
-ynh_abort_if_errors
+# Create a dedicated user (if not existing)
+ynh_system_user_create --username=$app --home_dir="$final_path"
 
 #=================================================
 # STANDARD UPGRADE STEPS
@@ -80,6 +88,10 @@ then
 	ynh_setup_source --dest_dir="$final_path"
 fi
 
+chmod 750 "$final_path"
+chmod -R o-rwx "$final_path"
+chown -R $app:www-data "$final_path"
+
 #=================================================
 # NGINX CONFIGURATION
 #=================================================
@@ -94,14 +106,6 @@ ynh_add_nginx_config
 ynh_script_progression --message="Upgrading dependencies..." --weight=5
 
 ynh_install_app_dependencies $pkg_dependencies
-
-#=================================================
-# CREATE DEDICATED USER
-#=================================================
-ynh_script_progression --message="Making sure dedicated system user exists..." --weight=1
-
-# Create a dedicated user (if not existing)
-ynh_system_user_create --username=$app
 
 #=================================================
 # PHP-FPM CONFIGURATION
@@ -123,15 +127,6 @@ ynh_store_file_checksum --file="$final_path/sites/$domain/config.json"
 
 # Fix a bug where images can't be uploaded
 ynh_replace_string --match_string="isMediaPathModified = true" --replace_string="" --target_file="$final_path/app/config/config.ini"
-
-#=================================================
-# GENERIC FINALIZATION
-#=================================================
-# SECURE FILES AND DIRECTORIES
-#=================================================
-
-# Set permissions on app files
-chown -R $app: $final_path
 
 #=================================================
 # RELOAD NGINX
