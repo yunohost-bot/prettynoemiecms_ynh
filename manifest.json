@@ -3,8 +3,8 @@
     "id": "prettynoemiecms",
     "packaging_format": 1,
     "description": {
-        "en": "An ergonomic, simple and elegant CMS to build in no time landpage websites with modern design.",
-        "fr": "Un CMS ergonomique, simple et élégant pour construire en un rien de temps des sites vitrines avec un design moderne."
+        "en": "Ergonomic, simple and elegant CMS to build in no time landpage websites with modern design",
+        "fr": "CMS ergonomique, simple et élégant pour construire en un rien de temps des sites vitrines avec un design moderne"
     },
     "version": "2020.01.07~ynh1",
     "url": "https://framagit.org/framasoft/PrettyNoemieCMS",
@@ -14,7 +14,7 @@
         "email": "pierre@kayou.io"
     },
     "requirements": {
-        "yunohost": ">= 4.1.7"
+        "yunohost": ">= 4.2.4"
     },
     "multi_instance": true,
     "services": [
@@ -25,8 +25,7 @@
         "install" : [
             {
                 "name": "domain",
-                "type": "domain",
-                "example": "example.com"
+                "type": "domain"
             },
             {
                 "name": "path",
@@ -36,8 +35,7 @@
             },
             {
                 "name": "admin",
-                "type": "user",
-                "example": "johndoe"
+                "type": "user"
             },
             {
                 "name": "is_public",
@@ -56,8 +54,7 @@
             },
             {
                 "name": "password",
-                "type": "password",
-                "example": "Choose a password"
+                "type": "password"
             }
         ]
     }
