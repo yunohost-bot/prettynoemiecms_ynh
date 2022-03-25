@@ -8,6 +8,12 @@
     },
     "version": "2020.01.07~ynh2",
     "url": "https://framagit.org/framasoft/PrettyNoemieCMS",
+    "upstream": {
+        "license": "AGPL-3.0",
+        "demo": "https://demo-pretty-noemie.frama.site",
+        "userdoc": "https://framagit.org/framasoft/PrettyNoemieCMS",
+        "code": "https://framagit.org/framasoft/PrettyNoemieCMS"
+    },
     "license": "AGPL-3.0",
     "maintainer": {
         "name": "kay0u",
