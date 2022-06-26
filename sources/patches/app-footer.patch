@@ -1,0 +1,11 @@
+--- a/app/views/base/footer/footer.htm
++++ b/app/views/base/footer/footer.htm
+@@ -40,7 +40,7 @@
+ 	<div class="" style="background-color: rgba(0,0,0,0.28)">
+ 		<div class="footer-copyright grey-text text-lighten-2 " >
+ 			<div class="container" style="font-size: 0.9em" >
+-				Hébergé par <a class="grey-text text-lighten-2" href="https://framasoft.org"><b>Framasoft</b></a>. Créé grâce à  <a class="grey-text text-lighten-2" href="https://framagit.org/framasoft/PrettyNoemieCMS" > <img src="public/img/logo-final-white.png" class="responsive-img" style="height: 1.6em; margin: auto 0 -1px 5px" alt=""><b>oemieCMS</b></a>. Créez librement et gratuitement votre <a class="grey-text text-lighten-2" href="https://frama.site/"><b>Page Framasite ici</b></a>.
++				Créé grâce à  <a class="grey-text text-lighten-2" href="https://framagit.org/framasoft/PrettyNoemieCMS" > <img src="public/img/logo-final-white.png" class="responsive-img" style="height: 1.6em; margin: auto 0 -1px 5px" alt=""><b>oemieCMS</b></a>.
+ 					</div>
+ 		</div>
+ 	</div>

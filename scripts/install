@@ -22,9 +22,9 @@ ynh_abort_if_errors
 
 domain=$YNH_APP_ARG_DOMAIN
 path_url=$YNH_APP_ARG_PATH
-admin=$YNH_APP_ARG_ADMIN
 is_public=$YNH_APP_ARG_IS_PUBLIC
 language=$YNH_APP_ARG_LANGUAGE
+admin=$YNH_APP_ARG_ADMIN
 password=$YNH_APP_ARG_PASSWORD
 
 app=$YNH_APP_INSTANCE_NAME
@@ -47,8 +47,8 @@ ynh_script_progression --message="Storing installation settings..." --weight=1
 
 ynh_app_setting_set --app=$app --key=domain --value=$domain
 ynh_app_setting_set --app=$app --key=path --value=$path_url
-ynh_app_setting_set --app=$app --key=admin --value=$admin
 ynh_app_setting_set --app=$app --key=language --value=$language
+ynh_app_setting_set --app=$app --key=admin --value=$admin
 
 #=================================================
 # STANDARD MODIFICATIONS
@@ -76,13 +76,9 @@ ynh_app_setting_set --app=$app --key=final_path --value=$final_path
 # Download, check integrity, uncompress and patch the source from app.src
 ynh_setup_source --dest_dir="$final_path"
 
-#=================================================
-# NGINX CONFIGURATION
-#=================================================
-ynh_script_progression --message="Configuring NGINX web server..." --weight=1
-
-# Create a dedicated nginx config
-ynh_add_nginx_config
+chmod 750 "$final_path"
+chmod -R o-rwx "$final_path"
+chown -R $app:www-data "$final_path"
 
 #=================================================
 # PHP-FPM CONFIGURATION
@@ -94,6 +90,14 @@ ynh_add_fpm_config
 phpversion=$(ynh_app_setting_get --app=$app --key=phpversion)
 
 #=================================================
+# NGINX CONFIGURATION
+#=================================================
+ynh_script_progression --message="Configuring NGINX web server..." --weight=1
+
+# Create a dedicated NGINX config
+ynh_add_nginx_config
+
+#=================================================
 # SPECIFIC SETUP
 #=================================================
 # INSTALL AND INITIALIZE COMPOSER
@@ -101,16 +105,15 @@ phpversion=$(ynh_app_setting_get --app=$app --key=phpversion)
 ynh_script_progression --message="Installing composer..." --weight=6
 
 # Install composer
-ynh_install_composer
+ynh_install_composer --phpversion="$phpversion" --workdir="$final_path"
 
 #=================================================
-# CREATE FILES AND DIRECTORIES
+# ADD A CONFIGURATION
 #=================================================
+ynh_script_progression --message="Adding a configuration file..."
 
 mkdir -p "$final_path/sites/$domain"
-
-echo "{\"siteDomain\":\"$domain\",\"siteLabel\":\"$domain\",\"admins\":[],\"siteLang\":\"$language\",\
-\"siteDescription\":\"Site r\u00e9alis\u00e9 avec FramaSite\",\"siteKeywords\":\"\"}" > "$final_path/sites/$domain/config.json"
+ynh_add_config --template="../conf/config.json" --destination="$final_path/sites/$domain/config.json"
 
 # Set permissions to app files
 chmod 750 "$final_path"
@@ -120,12 +123,12 @@ chown -R $app:www-data "$final_path"
 #=================================================
 # SETUP APPLICATION WITH CURL
 #=================================================
+ynh_script_progression --message="Setuping application with CURL..."
 
-# Set the app as temporarily public for cURL call
+# Set the app as temporarily public for curl call
+ynh_script_progression --message="Configuring SSOwat..."
+# Making the app public for curl
 ynh_permission_update --permission="main" --add="visitors"
-
-# Reload NGINX
-ynh_systemd_action --service_name=nginx --action=reload
 
 # Installation with curl
 ynh_script_progression --message="Finalizing installation..." --weight=2
@@ -134,15 +137,8 @@ ynh_local_curl "/signIn" "username=$admin" "password=$password" "repeatPassword=
 # Remove the public access
 ynh_permission_update --permission="main" --remove="visitors"
 
-#=================================================
-# STORE THE CONFIG FILE CHECKSUM
-#=================================================
-
 # Calculate and store the config file checksum into the app settings
 ynh_store_file_checksum --file="$final_path/sites/$domain/config.json"
-
-# Fix a bug where images can't be uploaded
-ynh_replace_string --match_string="isMediaPathModified = true" --replace_string="" --target_file="$final_path/app/config/config.ini"
 
 #=================================================
 # GENERIC FINALIZATION
@@ -154,6 +150,8 @@ ynh_script_progression --message="Configuring permissions..." --weight=1
 # Make app public if necessary
 if [ $is_public -eq 1 ]
 then
+	# Everyone can access the app.
+	# The "main" permission is automatically created before the install script.
 	ynh_permission_update --permission="main" --add="visitors"
 	# Only the admin can access the admin panel of the app (if the app has an admin panel)
 	ynh_permission_create --permission="admin" --url="/admin" --allowed=$admin
