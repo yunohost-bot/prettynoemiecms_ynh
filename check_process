@@ -16,6 +16,8 @@
 		upgrade=1
 		# 2020.01.07~ynh1
 		upgrade=1	from_commit=a2309f4c622bab3b728e765b125245ebf55f3f59
+		# 2020.01.07~ynh2
+		upgrade=1	from_commit=fb3e67f476810196b53c0a9eac0174b7665f6050
 		backup_restore=1
 		multi_instance=1
 		port_already_use=0
