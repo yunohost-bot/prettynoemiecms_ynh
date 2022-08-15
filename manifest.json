@@ -6,11 +6,10 @@
         "en": "Ergonomic, simple and elegant CMS to build in no time landpage websites with modern design",
         "fr": "CMS ergonomique, simple et élégant pour construire en un rien de temps des sites vitrines avec un design moderne"
     },
-    "version": "2020.01.07~ynh2",
+    "version": "2022.06.26~ynh1",
     "url": "https://framagit.org/framasoft/PrettyNoemieCMS",
     "upstream": {
         "license": "AGPL-3.0",
-        "demo": "https://demo-pretty-noemie.frama.site",
         "userdoc": "https://framagit.org/framasoft/PrettyNoemieCMS",
         "code": "https://framagit.org/framasoft/PrettyNoemieCMS"
     },
@@ -28,7 +27,7 @@
         "php7.3-fpm"
     ],
     "arguments": {
-        "install" : [
+        "install": [
             {
                 "name": "domain",
                 "type": "domain"
@@ -38,10 +37,6 @@
                 "type": "path",
                 "example": "/prettynoemiecms",
                 "default": "/prettynoemiecms"
-            },
-            {
-                "name": "admin",
-                "type": "user"
             },
             {
                 "name": "is_public",
@@ -57,6 +52,10 @@
                 },
                 "choices": ["fr_FR", "en_EN"],
                 "default": "fr_FR"
+            },
+            {
+                "name": "admin",
+                "type": "user"
             },
             {
                 "name": "password",
