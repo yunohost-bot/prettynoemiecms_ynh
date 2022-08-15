@@ -20,6 +20,7 @@ The construction of your site will consist of arranging at your convenience vari
 
 **Shipped version:** 2022.06.26~ynh1
 
+
 ## Screenshots
 
 ![Screenshot of PrettyNoemie CMS](./doc/screenshots/pages-framasite-theme-light.gif)
