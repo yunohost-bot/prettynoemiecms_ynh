@@ -5,7 +5,8 @@ It shall NOT be edited by hand.
 
 # PrettyNoemie CMS for YunoHost
 
-[![Integration level](https://dash.yunohost.org/integration/prettynoemiecms.svg)](https://dash.yunohost.org/appci/app/prettynoemiecms) ![Working status](https://ci-apps.yunohost.org/ci/badges/prettynoemiecms.status.svg) ![Maintenance status](https://ci-apps.yunohost.org/ci/badges/prettynoemiecms.maintain.svg)  
+[![Integration level](https://dash.yunohost.org/integration/prettynoemiecms.svg)](https://dash.yunohost.org/appci/app/prettynoemiecms) ![Working status](https://ci-apps.yunohost.org/ci/badges/prettynoemiecms.status.svg) ![Maintenance status](https://ci-apps.yunohost.org/ci/badges/prettynoemiecms.maintain.svg)
+
 [![Install PrettyNoemie CMS with YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=prettynoemiecms)
 
 *[Lire ce readme en français.](./README_fr.md)*
@@ -19,7 +20,6 @@ PrettyNoemieCMS offers its users an ergonomic solution, simple and elegant to bu
 The construction of your site will consist of arranging at your convenience various modules, edit their content, and customize your site by choosing fonts, formatting text, and display colors.
 
 **Shipped version:** 2022.06.26~ynh1
-
 
 ## Screenshots
 
