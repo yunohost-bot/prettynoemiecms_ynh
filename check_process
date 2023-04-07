@@ -5,7 +5,7 @@
 		is_public=1
 		language="fr_FR"
 		admin="john"
-		password="pass"
+		password="SomeSuperStrongPassword"
 	; Checks
 		pkg_linter=1
 		setup_sub_dir=1
@@ -22,6 +22,3 @@
 		multi_instance=1
 		port_already_use=0
 		change_url=1
-;;; Options
-Email=
-Notification=none
