@@ -35,7 +35,7 @@ Comment configurer cette application: via le panneau d'administration à : `votr
 
 * Documentation officielle utilisateur : <https://framagit.org/framasoft/PrettyNoemieCMS>
 * Dépôt de code officiel de l’app : <https://framagit.org/framasoft/PrettyNoemieCMS>
-* Documentation YunoHost pour cette app : <https://yunohost.org/app_prettynoemiecms>
+* YunoHost Store: <https://apps.yunohost.org/app/prettynoemiecms>
 * Signaler un bug : <https://github.com/YunoHost-Apps/prettynoemiecms_ynh/issues>
 
 ## Informations pour les développeurs
