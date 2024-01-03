@@ -19,17 +19,12 @@ Si vous n’avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) po
 CMS offrant à ses utilisateurs une solution ergonomique, simple et élégante pour construire en un rien de temps des sites vitrines responsives au design moderne.
 La construction de votre site consistera à agencer à votre convenance des modules variés, d'éditer leurs contenus, et de personnaliser votre site en choisissant les polices de caractère, la mise en forme du texte, ainsi que les couleurs d'affichage.
 
+
 **Version incluse :** 2022.06.26~ynh1
 
 ## Captures d’écran
 
 ![Capture d’écran de PrettyNoemie CMS](./doc/screenshots/pages-framasite-theme-light.gif)
-
-## Avertissements / informations importantes
-
-## Configuration
-
-Comment configurer cette application: via le panneau d'administration à : `votre.domain.tld/votre_chemin/admin`
 
 ## Documentations et ressources
 
