@@ -65,15 +65,10 @@ ynh_script_progression --message="Setuping application with CURL..."
 
 # Set the app as temporarily public for curl call
 ynh_script_progression --message="Configuring SSOwat..."
-# Making the app public for curl
-#REMOVEME? ynh_permission_update --permission="main" --add="visitors"
 
 # Installation with curl
 ynh_script_progression --message="Finalizing installation..." --weight=2
 ynh_local_curl "/signIn" "username=$admin" "password=$password" "repeatPassword=$password"
-
-# Remove the public access
-#REMOVEME? ynh_permission_update --permission="main" --remove="visitors"
 
 # Calculate and store the config file checksum into the app settings
 ynh_store_file_checksum --file="$install_dir/sites/$domain/config.json"
