@@ -1,0 +1,74 @@
+#:schema https://raw.githubusercontent.com/YunoHost/apps/master/schemas/manifest.v2.schema.json
+
+packaging_format = 2
+
+id = "prettynoemiecms"
+name = "PrettyNoemie CMS"
+description.en = "Ergonomic, simple and elegant CMS to build in no time landpage websites with modern design"
+description.fr = "CMS ergonomique, simple et élégant pour construire en un rien de temps des sites vitrines avec un design moderne"
+
+version = "2022.06.26~ynh1"
+
+maintainers = ["kay0u"]
+
+[upstream]
+license = "AGPL-3.0"
+code = "https://framagit.org/framasoft/PrettyNoemieCMS"
+website = "https://framalibre.org/notices/prettynoemiecms.html"
+fund = "https://framasoft.org/fr/#support"
+
+[integration]
+yunohost = ">= 4.3.0"
+architectures = "all"
+multi_instance = true
+ldap = "?"
+sso = "?"
+disk = "50M" # FIXME: replace with an **estimate** minimum disk requirement. e.g. 20M, 400M, 1G, ...
+ram.build = "50M" # FIXME: replace with an **estimate** minimum ram requirement. e.g. 50M, 400M, 1G, ...
+ram.runtime = "50M" # FIXME: replace with an **estimate** minimum ram requirement. e.g. 50M, 400M, 1G, ...
+
+[install]
+    [install.domain]
+    type = "domain"
+
+    [install.path]
+    type = "path"
+    default = "/prettynoemiecms"
+
+    [install.init_main_permission]
+    type = "group"
+    default = "visitors"
+
+    [install.language]
+    ask.en = "Choose the application language"
+    ask.fr = "Choisissez la langue de l'application"
+    type = "string"
+    choices = ["fr_FR", "en_EN"]
+    default = "fr_FR"
+
+    [install.admin]
+    type = "user"
+
+    [install.password]
+    type = "password"
+
+[resources]
+    [resources.sources.main]
+    url = "https://framagit.org/framasoft/PrettyNoemieCMS/-/archive/2cc12314388c06f2194b07ee7204bc213fb65230/PrettyNoemieCMS-2cc12314388c06f2194b07ee7204bc213fb65230.tar.gz"
+    sha256 = "a873d7abf5325bef70156d669872cb78ab6f15716c5edcc59015ab88540a6723"
+
+    [resources.system_user]
+
+    [resources.install_dir]
+
+    [resources.permissions]
+    main.url = "/"
+
+    [resources.apt]
+    packages = [
+        "git",
+        "php7.3-cli",
+        "php7.3-common",
+        "php7.3-intl",
+        "php7.3-json"
+    ]
