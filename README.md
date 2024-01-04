@@ -19,21 +19,16 @@ If you don't have YunoHost, please consult [the guide](https://yunohost.org/#/in
 PrettyNoemieCMS offers its users an ergonomic solution, simple and elegant to build in no time responsive windows sites with modern design.
 The construction of your site will consist of arranging at your convenience various modules, edit their content, and customize your site by choosing fonts, formatting text, and display colors.
 
+
 **Shipped version:** 2022.06.26~ynh1
 
 ## Screenshots
 
 ![Screenshot of PrettyNoemie CMS](./doc/screenshots/pages-framasite-theme-light.gif)
 
-## Disclaimers / important information
-
-## Configuration
-
-How to configure this app: by an admin panel at: `your.domain.tld/your_path/admin`
-
 ## Documentation and resources
 
-* Official user documentation: <https://framagit.org/framasoft/PrettyNoemieCMS>
+* Official app website: <https://framalibre.org/notices/prettynoemiecms.html>
 * Upstream app code repository: <https://framagit.org/framasoft/PrettyNoemieCMS>
 * YunoHost Store: <https://apps.yunohost.org/app/prettynoemiecms>
 * Report a bug: <https://github.com/YunoHost-Apps/prettynoemiecms_ynh/issues>

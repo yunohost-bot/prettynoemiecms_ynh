@@ -1,0 +1,12 @@
+#:schema https://raw.githubusercontent.com/YunoHost/apps/master/schemas/tests.v1.schema.json
+
+test_format = 1.0
+
+[default]
+
+    # -------------------------------
+    # Commits to test upgrade from
+    # -------------------------------
+
+    test_upgrade_from.a2309f4.name = "2020.01.07~ynh1"
+    test_upgrade_from.fb3e67f.name = "2020.01.07~ynh2"
