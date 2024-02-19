@@ -56,6 +56,7 @@ ram.runtime = "50M"
     [resources.sources.main]
     url = "https://framagit.org/framasoft/PrettyNoemieCMS/-/archive/2cc12314388c06f2194b07ee7204bc213fb65230/PrettyNoemieCMS-2cc12314388c06f2194b07ee7204bc213fb65230.tar.gz"
     sha256 = "a873d7abf5325bef70156d669872cb78ab6f15716c5edcc59015ab88540a6723"
+    autoupdate.strategy = "latest_gitlab_commit"
 
     [resources.system_user]
 
