@@ -5,37 +5,32 @@ It shall NOT be edited by hand.
 
 # PrettyNoemie CMS pour YunoHost
 
-[![Niveau d'intégration](https://dash.yunohost.org/integration/prettynoemiecms.svg)](https://dash.yunohost.org/appci/app/prettynoemiecms) ![Statut du fonctionnement](https://ci-apps.yunohost.org/ci/badges/prettynoemiecms.status.svg) ![Statut de maintenance](https://ci-apps.yunohost.org/ci/badges/prettynoemiecms.maintain.svg)  
+[![Niveau d’intégration](https://dash.yunohost.org/integration/prettynoemiecms.svg)](https://dash.yunohost.org/appci/app/prettynoemiecms) ![Statut du fonctionnement](https://ci-apps.yunohost.org/ci/badges/prettynoemiecms.status.svg) ![Statut de maintenance](https://ci-apps.yunohost.org/ci/badges/prettynoemiecms.maintain.svg)
+
 [![Installer PrettyNoemie CMS avec YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=prettynoemiecms)
 
 *[Read this readme in english.](./README.md)*
 
-> *Ce package vous permet d'installer PrettyNoemie CMS rapidement et simplement sur un serveur YunoHost.
-Si vous n'avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) pour savoir comment l'installer et en profiter.*
+> *Ce package vous permet d’installer PrettyNoemie CMS rapidement et simplement sur un serveur YunoHost.
+Si vous n’avez pas YunoHost, regardez [ici](https://yunohost.org/#/install) pour savoir comment l’installer et en profiter.*
 
-## Vue d'ensemble
+## Vue d’ensemble
 
 CMS offrant à ses utilisateurs une solution ergonomique, simple et élégante pour construire en un rien de temps des sites vitrines responsives au design moderne.
 La construction de votre site consistera à agencer à votre convenance des modules variés, d'éditer leurs contenus, et de personnaliser votre site en choisissant les polices de caractère, la mise en forme du texte, ainsi que les couleurs d'affichage.
 
-**Version incluse :** 2022.06.26~ynh1
 
+**Version incluse :** 2022.06.26~ynh1
 
-## Captures d'écran
+## Captures d’écran
 
-![Capture d'écran de PrettyNoemie CMS](./doc/screenshots/pages-framasite-theme-light.gif)
-
-## Avertissements / informations importantes
-
-## Configuration
-
-Comment configurer cette application: via le panneau d'administration à : `votre.domain.tld/votre_chemin/admin`
+![Capture d’écran de PrettyNoemie CMS](./doc/screenshots/pages-framasite-theme-light.gif)
 
 ## Documentations et ressources
 
-* Documentation officielle utilisateur : <https://framagit.org/framasoft/PrettyNoemieCMS>
-* Dépôt de code officiel de l'app : <https://framagit.org/framasoft/PrettyNoemieCMS>
-* Documentation YunoHost pour cette app : <https://yunohost.org/app_prettynoemiecms>
+* Site officiel de l’app : <https://framalibre.org/notices/prettynoemiecms.html>
+* Dépôt de code officiel de l’app : <https://framagit.org/framasoft/PrettyNoemieCMS>
+* YunoHost Store: <https://apps.yunohost.org/app/prettynoemiecms>
 * Signaler un bug : <https://github.com/YunoHost-Apps/prettynoemiecms_ynh/issues>
 
 ## Informations pour les développeurs
@@ -50,4 +45,4 @@ ou
 sudo yunohost app upgrade prettynoemiecms -u https://github.com/YunoHost-Apps/prettynoemiecms_ynh/tree/testing --debug
 ```
 
-**Plus d'infos sur le packaging d'applications :** <https://yunohost.org/packaging_apps>
+**Plus d’infos sur le packaging d’applications :** <https://yunohost.org/packaging_apps>
