@@ -9,7 +9,7 @@ It shall NOT be edited by hand.
 
 [![Install PrettyNoemie CMS with YunoHost](https://install-app.yunohost.org/install-with-yunohost.svg)](https://install-app.yunohost.org/?app=prettynoemiecms)
 
-*[Read this README is other languages.](./ALL_README.md)*
+*[Read this README in other languages.](./ALL_README.md)*
 
 > *This package allows you to install PrettyNoemie CMS quickly and simply on a YunoHost server.*  
 > *If you don't have YunoHost, please consult [the guide](https://yunohost.org/install) to learn how to install it.*
@@ -20,7 +20,7 @@ PrettyNoemieCMS offers its users an ergonomic solution, simple and elegant to bu
 The construction of your site will consist of arranging at your convenience various modules, edit their content, and customize your site by choosing fonts, formatting text, and display colors.
 
 
-**Shipped version:** 2022.06.26~ynh1
+**Shipped version:** 2022.06.26~ynh2
 
 ## Screenshots
 
