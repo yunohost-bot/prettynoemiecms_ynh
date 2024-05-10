@@ -18,11 +18,14 @@ website = "https://framalibre.org/notices/prettynoemiecms.html"
 fund = "https://framasoft.org/fr/#support"
 
 [integration]
-yunohost = ">= 4.3.0"
+yunohost = ">= 11.2"
 architectures = "all"
 multi_instance = true
+
 ldap = false
+
 sso = false
+
 disk = "50M"
 ram.build = "50M"
 ram.runtime = "50M"

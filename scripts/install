@@ -51,7 +51,7 @@ ynh_install_composer --phpversion="$phpversion" --workdir="$install_dir"
 ynh_script_progression --message="Adding a configuration file..."
 
 mkdir -p "$install_dir/sites/$domain"
-ynh_add_config --template="../conf/config.json" --destination="$install_dir/sites/$domain/config.json"
+ynh_add_config --template="config.json" --destination="$install_dir/sites/$domain/config.json"
 
 # Set permissions to app files
 chmod 750 "$install_dir"
