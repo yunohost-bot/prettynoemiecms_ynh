@@ -3,7 +3,7 @@
 请勿手动编辑。
 -->
 
-# YunoHost 的 PrettyNoemie CMS
+# YunoHost 上的 PrettyNoemie CMS
 
 [![集成程度](https://dash.yunohost.org/integration/prettynoemiecms.svg)](https://dash.yunohost.org/appci/app/prettynoemiecms) ![工作状态](https://ci-apps.yunohost.org/ci/badges/prettynoemiecms.status.svg) ![维护状态](https://ci-apps.yunohost.org/ci/badges/prettynoemiecms.maintain.svg)
 
