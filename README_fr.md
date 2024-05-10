@@ -20,7 +20,7 @@ CMS offrant à ses utilisateurs une solution ergonomique, simple et élégante p
 La construction de votre site consistera à agencer à votre convenance des modules variés, d'éditer leurs contenus, et de personnaliser votre site en choisissant les polices de caractère, la mise en forme du texte, ainsi que les couleurs d'affichage.
 
 
-**Version incluse :** 2022.06.26~ynh2
+**Version incluse :** 2022.06.26~ynh3
 
 ## Captures d’écran
 

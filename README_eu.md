@@ -20,7 +20,7 @@ PrettyNoemieCMS offers its users an ergonomic solution, simple and elegant to bu
 The construction of your site will consist of arranging at your convenience various modules, edit their content, and customize your site by choosing fonts, formatting text, and display colors.
 
 
-**Paketatutako bertsioa:** 2022.06.26~ynh2
+**Paketatutako bertsioa:** 2022.06.26~ynh3
 
 ## Pantaila-argazkiak
 
