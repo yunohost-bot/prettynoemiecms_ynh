@@ -3,7 +3,7 @@
 请勿手动编辑。
 -->
 
-# YunoHost 的 PrettyNoemie CMS
+# YunoHost 上的 PrettyNoemie CMS
 
 [![集成程度](https://dash.yunohost.org/integration/prettynoemiecms.svg)](https://dash.yunohost.org/appci/app/prettynoemiecms) ![工作状态](https://ci-apps.yunohost.org/ci/badges/prettynoemiecms.status.svg) ![维护状态](https://ci-apps.yunohost.org/ci/badges/prettynoemiecms.maintain.svg)
 
@@ -20,7 +20,7 @@ PrettyNoemieCMS offers its users an ergonomic solution, simple and elegant to bu
 The construction of your site will consist of arranging at your convenience various modules, edit their content, and customize your site by choosing fonts, formatting text, and display colors.
 
 
-**分发版本：** 2022.06.26~ynh2
+**分发版本：** 2022.06.26~ynh3
 
 ## 截图
 
