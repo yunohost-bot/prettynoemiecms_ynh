@@ -26,6 +26,10 @@ The construction of your site will consist of arranging at your convenience vari
 
 ![Screenshot of PrettyNoemie CMS](./doc/screenshots/pages-framasite-theme-light.gif)
 
+## :red_circle: Antifeatures
+
+- **Upstream not maintained**: This software is not maintained anymore. Expect it to break down over time, be exposed to unfixed security breaches, etc.
+
 ## Documentation and resources
 
 - Official app website: <https://framalibre.org/notices/prettynoemiecms.html>
