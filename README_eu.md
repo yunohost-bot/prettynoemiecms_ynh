@@ -26,6 +26,10 @@ The construction of your site will consist of arranging at your convenience vari
 
 ![PrettyNoemie CMS(r)en pantaila-argazkia](./doc/screenshots/pages-framasite-theme-light.gif)
 
+## :red_circle: Ezaugarri zalantzagarriak
+
+- **Jatorrizko garapena utzita**: Software honek ez du arduradunik. Denborak aurrera egin ahala funtzionatzeari utziko dio, konpondu gabeko segurtasun arazoak izango ditu, etab.
+
 ## Dokumentazioa eta baliabideak
 
 - Aplikazioaren webgune ofiziala: <https://framalibre.org/notices/prettynoemiecms.html>
